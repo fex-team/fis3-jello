@@ -2,6 +2,7 @@
 var exports = module.exports = function(fis) {
 
   fis.set('system.localNPMFolder', path.join(__dirname, 'node_modules'));
+  fis.require.prefixes.unshift('jello'); // 优先加载 jello 打头的插件。
 
   var weight = -100; // 此插件中，所有 match 默认的权重。
   var weightWithNs = -50; // 所有针对有 namespace 后设置的权重
