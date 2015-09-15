@@ -2,10 +2,12 @@
 
 基于 fis3 针对 jsp/velocity 模板的前端工程解决方案。
 
+此版本基于 fis3， 想了解 fis2 版本，请移步至：https://github.com/fex-team/jello
+
 ## 使用说明
+安装 `fis3-jello`
 
 ```
-npm install -g fis3
 npm install -g fis3-jello
 ```
 
