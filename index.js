@@ -1,3 +1,4 @@
+var path = require('path');
 
 var exports = module.exports = function(fis) {
 
