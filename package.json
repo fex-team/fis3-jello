@@ -1,6 +1,6 @@
 {
   "name": "fis3-jello",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "fis3 jello",
   "main": "index.js",
   "scripts": {
