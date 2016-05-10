@@ -1,6 +1,6 @@
 {
   "name": "fis3-jello",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "fis3 jello",
   "main": "index.js",
   "scripts": {
@@ -23,9 +23,9 @@
   "dependencies": {
     "fis-parser-less": "0.1.3",
     "fis-parser-utc": "0.0.2",
-    "fis3-preprocessor-extlang": "1.1.7",
+    "fis3-preprocessor-extlang": "1.1.8",
     "fis3-command-server": "~0.0.2",
     "fis3-server-jello": "~0.0.6",
-    "fis3-hook-commonjs": "0.1.14"
+    "fis3-hook-commonjs": "0.1.17"
   }
 }
