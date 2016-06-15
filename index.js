@@ -41,10 +41,10 @@ var exports = module.exports = function(fis) {
     }, weight)
 
     // 对 sass 文件默认支持。
-    /*.match('*.{sass,scss}', {
-      parser: fis.plugin('sass'),
+    .match('*.{sass,scss}', {
+      parser: fis.plugin('node-sass'),
       rExt: '.css'
-    }, weight)*/
+    }, weight)
 
     // 对 tmpl 文件，默认采用 utc 插件转换成 js 函数。
     .match('*.tmpl', {
@@ -106,7 +106,7 @@ var exports = module.exports = function(fis) {
     }, weight)
 
     .match('server.conf', {
-      release: '/WEB-INF/server${namespace}.conf'
+      release: '/WEB-INF/server-${namespace}.conf'
     })
 
     .match('VM_global_library.vm', {
@@ -144,7 +144,7 @@ var exports = module.exports = function(fis) {
       optimizer: fis.plugin('uglify-js')
     }, weight)
 
-    .match('*.css', {
+    .match('*.{scss, sass, less, css}', {
       optimizer: fis.plugin('clean-css')
     }, weight)
 
