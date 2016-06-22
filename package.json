@@ -1,6 +1,6 @@
 {
   "name": "fis3-jello",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "fis3 jello",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,6 @@
     "fis-parser-utc": "0.0.2",
     "fis3-preprocessor-extlang": "1.1.8",
     "fis3-server-jello": "~0.0.6",
-    "fis3-hook-commonjs": "0.1.22",
-    "fis-parser-node-sass": "0.2.1"
+    "fis3-hook-commonjs": "0.1.22"
   }
 }
