@@ -114,7 +114,7 @@ var exports = module.exports = function(fis) {
     }, weight)
 
     // _ 下划线打头的都是不希望被产出的文件。
-    .match('_*.{scss,tmpl,html}}', {
+    .match('_*.{scss,tmpl,html}', {
       release: false
     }, weight)
 
