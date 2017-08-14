@@ -1,6 +1,24 @@
+var PropertiesReader = require('properties-reader');
+var fs = require('fs');
 var path = require('path');
 
-var exports = module.exports = function(fis) {
+var exports = module.exports = function (fis) {
+  var fisPropertyConf = {
+    'templatesPath': '/WEB-INF/views',
+    'confPath': '/WEB-INF/config'
+  };
+  // 判断fis.properties文件是否存在，存在读取配置
+  var propertiesFile = path.join(fis.project.getProjectPath(), 'fis.properties');
+  if (fs.existsSync(propertiesFile)) {
+    try {
+      var fisProperty = PropertiesReader(propertiesFile);
+      fisPropertyConf[ 'templatesPath' ] = fisProperty.get('views.path') || fisPropertyConf[ 'templatesPath' ];
+      fisPropertyConf[ 'confPath' ] = fisProperty.get('mapDir') || fisPropertyConf[ 'confPath' ];
+    } catch (e) {
+      fis.log.error('read fis.properties [%s] fail: %s.', propertiesFile, e);
+      return;
+    }
+  }
 
   fis.set('system.localNPMFolder', path.join(__dirname, 'node_modules'));
 
@@ -18,7 +36,8 @@ var exports = module.exports = function(fis) {
 
   fis.set('namespace', '');
   fis.set('statics', '/static');
-  fis.set('templates', '/WEB-INF/views');
+  // fis.set('templates', '/WEB-INF/views');
+  fis.set('templates', fisPropertyConf[ 'templatesPath' ]);
 
   // 默认捆绑 jello 的服务器。
   // fis3 server start 可以不指定 type.
@@ -97,7 +116,7 @@ var exports = module.exports = function(fis) {
     }, weight)
 
     .match('{map.json,${namespace}-map.json}', {
-      release: '/WEB-INF/config/$0'
+      release: fisPropertyConf['confPath'] +　'/$0'
     }, weight)
 
     // 注意这类文件在多个项目中都有的话，会被最后一次 release 的覆盖。
